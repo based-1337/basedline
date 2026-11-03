@@ -1,6 +1,7 @@
 #pragma once
 
 #include <span>
+#include <string_view>
 #include <vector>
 #include <utility>
 
@@ -10,8 +11,6 @@
 #include "Basedline/Editor.hpp"
 
 namespace Basedline {
-
-class ScreenBuf;
 
 class Input {
 	enum class InputEventType {
@@ -31,7 +30,7 @@ class Input {
 
 public:
 	void read ();
-	void dump (ScreenBuf& screenBuf);
+	const std::string_view get ();
 };
 
 }

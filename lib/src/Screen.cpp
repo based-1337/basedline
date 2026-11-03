@@ -14,14 +14,8 @@ void Screen::write (std::string_view str) {
 
 void Screen::flush () {
 	cursor.set_visible (false);
-	VtCommand::clear_lines (0, 1);
-	in.dump (screenBuf);
 	screenBuf.flush();
 	cursor.set_visible (true);
-}
-
-Screen::Screen () {
-	clear();
 }
 
 }

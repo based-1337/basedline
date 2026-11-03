@@ -1,0 +1,18 @@
+#include "Basedline/Basedline.hpp"
+
+namespace Basedline {
+
+void Basedline::read () {
+	in.read();
+}
+
+void Basedline::write (std::string_view str) {
+	scr.write (str);
+}
+
+void Basedline::flush () {
+	scr.write (in.get());
+	scr.flush();
+}
+
+}

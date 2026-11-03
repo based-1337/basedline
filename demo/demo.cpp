@@ -1,13 +1,11 @@
-#include "Basedline/Screen.hpp"
-
-#include <print>
+#include "Basedline/Basedline.hpp"
 
 int main () {
-	Basedline::Screen bl;
+	Basedline::Basedline bl;
 
 	for (int i = 0; i < 10; i++) {
-		bl.in.read();
-		bl.write ("a");
+		bl.read();
+		//bl.write ("a");
 		bl.flush();
 	}
 

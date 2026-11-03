@@ -54,6 +54,7 @@ struct TTYConf {
 	OutputConf outputConf;
 
 	TTYConf ();
+	BASED_CLASS_NO_COPY_MOVE (TTYConf);
 };
 
 }

@@ -16,6 +16,7 @@ target_compile_definitions(basedline PRIVATE
 )
 
 set(BASEDLINE_SOURCES
+	Basedline.cpp
 	Cursor.cpp
 	Editor.cpp
 	Input.cpp

@@ -79,8 +79,8 @@ void Input::read () {
 		dispatch (ev);
 }
 
-void Input::dump (ScreenBuf& screenBuf) {
-	screenBuf.push (ed.buf());
+const std::string_view Input::get () {
+	return ed.buf();
 }
 
 }
