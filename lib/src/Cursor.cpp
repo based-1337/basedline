@@ -8,9 +8,14 @@ tpos_t Cursor::move_to (tpos_t newPos) {
 	return {1, 1};
 }
 
-void Cursor::set_visible (bool val) {
-	val ? VtCommand::cursor_show() : VtCommand::cursor_hide();
-	_visible = val;
+void Cursor::hide () {
+	VtCommand::cursor_hide();
+	_visible = false;
+}
+
+void Cursor::show () {
+	VtCommand::cursor_show();
+	_visible = true;
 }
 
 }

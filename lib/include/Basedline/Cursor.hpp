@@ -11,8 +11,9 @@ public:
 	tpos_t pos () const noexcept { return _pos; }
 	bool visible () const noexcept { return _visible; }
 
+	void hide();
+	void show();
 	tpos_t move_to (tpos_t newPos);
-	void set_visible (bool val);
 };
 
 }

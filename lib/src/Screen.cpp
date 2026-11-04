@@ -13,9 +13,7 @@ void Screen::write (std::string_view str) {
 }
 
 void Screen::flush () {
-	cursor.set_visible (false);
 	screenBuf.flush();
-	cursor.set_visible (true);
 }
 
 }

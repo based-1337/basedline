@@ -79,7 +79,7 @@ void Input::read () {
 		dispatch (ev);
 }
 
-const std::string_view Input::get () {
+std::string_view Input::get () const noexcept {
 	return ed.buf();
 }
 

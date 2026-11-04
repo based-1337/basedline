@@ -30,7 +30,7 @@ class Input {
 
 public:
 	void read ();
-	const std::string_view get ();
+	std::string_view get () const noexcept;
 };
 
 }

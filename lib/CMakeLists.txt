@@ -20,6 +20,7 @@ set(BASEDLINE_SOURCES
 	Cursor.cpp
 	Editor.cpp
 	Input.cpp
+	InputDisplay.cpp
 	Screen.cpp
 	TTYConf.cpp
 	VtCommand.cpp

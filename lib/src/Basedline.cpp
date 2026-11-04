@@ -11,8 +11,12 @@ void Basedline::write (std::string_view str) {
 }
 
 void Basedline::flush () {
-	scr.write (in.get());
+	inputDisplay.dump();
+	inputDisplay.hide();
 	scr.flush();
+	inputDisplay.show();
 }
+
+Basedline::Basedline () : inputDisplay (in, scr) { }
 
 }
