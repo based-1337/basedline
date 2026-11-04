@@ -18,9 +18,14 @@ class InputDisplay {
 	tsize_t editorPos = 0;
 	bool visible = false;
 
+	void update_cursor ();
+	void restore_cursor ();
+
 public:
 	void hide ();
 	void show ();
+
+	void draw ();
 
 	InputDisplay (const Input& in, Screen& scr) : in (in), scr (scr) { }
 };

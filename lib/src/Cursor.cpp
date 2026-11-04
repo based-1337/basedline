@@ -18,6 +18,10 @@ void Cursor::move_up (tsize_t dy) {
 	if (dy > 0) VtCommand::cursor_up (dy);
 }
 
+void Cursor::move_down (tsize_t dy) {
+	if (dy > 0) VtCommand::cursor_down (dy);
+}
+
 void Cursor::move_line_begin () {
 	VtCommand::cr();
 }

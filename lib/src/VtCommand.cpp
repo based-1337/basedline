@@ -14,6 +14,7 @@
 #define VT_CUH CSI"H"
 #define VT_CUP CSI"%d;%dH"
 #define VT_CUU CSI"%dA"
+#define VT_CUD CSI"%dB"
 #define VT_DECTCEM_L CSI"?25l"
 #define VT_DECTCEM_H CSI"?25h"
 #define VT_DL  CSI"%dM"
@@ -42,6 +43,10 @@ void cr () {
 
 void cursor_up (tsize_t dy) {
 	std::printf (VT_CUU, dy);
+}
+
+void cursor_down (tsize_t dy) {
+	std::printf (VT_CUD, dy);
 }
 
 void cursor_to (tpos_t pos) {
