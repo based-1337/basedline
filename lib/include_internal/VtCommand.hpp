@@ -12,6 +12,7 @@ void cr ();
 
 void cursor_up (tsize_t dy);
 void cursor_to (tpos_t pos);
+void cursor_to_col (tsize_t col);
 void cursor_hide ();
 void cursor_show ();
 

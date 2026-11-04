@@ -11,7 +11,6 @@ void Basedline::write (std::string_view str) {
 }
 
 void Basedline::flush () {
-	inputDisplay.dump();
 	inputDisplay.hide();
 	scr.flush();
 	inputDisplay.show();

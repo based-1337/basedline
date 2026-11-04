@@ -1,9 +1,7 @@
 #pragma once
 
 #include <span>
-#include <string_view>
 #include <vector>
-#include <utility>
 
 #include "BasedVT/Parser.hpp"
 #include "BasedVT/InputEvent/Event.hpp"
@@ -18,7 +16,10 @@ class Input {
 		Autocomplete,
 		History
 	};
-	using InputEvent = std::pair<InputEventType, BasedVT::InputEvent::Event>;
+	struct InputEvent {
+		InputEventType type;
+		BasedVT::InputEvent::Event ev;
+	};
 	using InputEvents = std::vector<InputEvent>;
 
 	Editor ed;
@@ -30,7 +31,7 @@ class Input {
 
 public:
 	void read ();
-	std::string_view get () const noexcept;
+	const Editor& editor () const noexcept { return ed; }
 };
 
 }

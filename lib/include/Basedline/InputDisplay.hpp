@@ -15,12 +15,12 @@ class InputDisplay {
 
 	tsize_t rows = 1;
 	tpos_t cursorPos = {0};
+	tsize_t editorPos = 0;
 	bool visible = false;
 
 public:
 	void hide ();
 	void show ();
-	void dump ();
 
 	InputDisplay (const Input& in, Screen& scr) : in (in), scr (scr) { }
 };

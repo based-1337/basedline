@@ -16,12 +16,17 @@ void InputDisplay::hide () {
 }
 
 void InputDisplay::show () {
+	tsize_t editorPosSave = editorPos;
+	editorPos = in.editor().pos();
+
+	cursorPos.x = editorPos;
+
+	scr.write (in.editor().buf());
+	scr.flush();
+
+	cursor.move_to_col (cursorPos.x);
 	cursor.show();
 	visible = true;
-}
-
-void InputDisplay::dump () {
-	scr.write (in.get());
 }
 
 }

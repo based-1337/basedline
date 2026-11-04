@@ -22,4 +22,8 @@ void Cursor::move_line_begin () {
 	VtCommand::cr();
 }
 
+void Cursor::move_to_col (tsize_t col) {
+	VtCommand::cursor_to_col (col);
+}
+
 }

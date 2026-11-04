@@ -40,10 +40,9 @@ Input::InputEvents Input::decode (std::span<uint8_t> buf) {
 }
 
 void Input::dispatch (const InputEvent& ev) {
-	const auto& [eventType, event] = ev;
-	switch (eventType) {
+	switch (ev.type) {
 		case InputEventType::Edit:
-			dispatch_edit (std::get<BasedVT::InputEvent::KeyInput> (event));
+			dispatch_edit (std::get<BasedVT::InputEvent::KeyInput> (ev.ev));
 			return;
 		default: return;
 	}
@@ -77,10 +76,6 @@ void Input::read () {
 	InputEvents evs = decode (std::span (buf, n));
 	for (const InputEvent& ev : evs)
 		dispatch (ev);
-}
-
-std::string_view Input::get () const noexcept {
-	return ed.buf();
 }
 
 }

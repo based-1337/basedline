@@ -16,6 +16,7 @@ public:
 
 	void move_up (tsize_t dy);
 	void move_line_begin ();
+	void move_to_col (tsize_t col);
 };
 
 }

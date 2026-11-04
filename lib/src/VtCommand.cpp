@@ -10,6 +10,7 @@
 #define VT_DECSC ESC"7"
 #define VT_DECSR ESC"8"
 
+#define VT_CHA CSI"%dG"
 #define VT_CUH CSI"H"
 #define VT_CUP CSI"%d;%dH"
 #define VT_CUU CSI"%dA"
@@ -45,6 +46,10 @@ void cursor_up (tsize_t dy) {
 
 void cursor_to (tpos_t pos) {
 	std::printf (VT_CUP, pos.y + 1, pos.x + 1);
+}
+
+void cursor_to_col (tsize_t col) {
+	std::printf (VT_CHA, col + 1);
 }
 
 void cursor_hide () {
