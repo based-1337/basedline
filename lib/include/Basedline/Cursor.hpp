@@ -13,7 +13,9 @@ public:
 
 	void hide();
 	void show();
-	tpos_t move_to (tpos_t newPos);
+
+	void move_up (tsize_t dy);
+	void move_line_begin ();
 };
 
 }

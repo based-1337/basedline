@@ -13,9 +13,9 @@ class InputDisplay {
 	Screen& scr;
 	Cursor cursor;
 
-	tsize_t rows;
-	tpos_t cursorPos;
-	bool visible;
+	tsize_t rows = 1;
+	tpos_t cursorPos = {0};
+	bool visible = false;
 
 public:
 	void hide ();
