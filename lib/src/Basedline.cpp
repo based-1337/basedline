@@ -2,8 +2,8 @@
 
 namespace Basedline {
 
-void Basedline::read () {
-	in.read();
+Outputs Basedline::read () {
+	return in.read();
 }
 
 void Basedline::write (std::string_view str) {

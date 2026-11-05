@@ -39,43 +39,48 @@ Input::InputEvents Input::decode (std::span<uint8_t> buf) {
 	return evs;
 }
 
-void Input::dispatch (const InputEvent& ev) {
+OptString Input::dispatch (const InputEvent& ev) {
 	switch (ev.type) {
 		case InputEventType::Edit:
-			dispatch_edit (std::get<BasedVT::InputEvent::KeyInput> (ev.ev));
-			return;
-		default: return;
+			return dispatch_edit (std::get<BasedVT::InputEvent::KeyInput> (ev.ev));
 	}
+	return std::nullopt;
 }
 
-void Input::dispatch_edit (const BasedVT::InputEvent::KeyInput& k) {
+OptString Input::dispatch_edit (const BasedVT::InputEvent::KeyInput& k) {
 	using namespace BasedVT::InputEvent;
 	switch (k.key) {
 		[[likely]]
-		case KeyInput::Key::CHAR: ed.accumulate (k.byte); return;
+		case KeyInput::Key::CHAR: ed.accumulate (k.byte); break;
+		case KeyInput::Key::ENTER: return ed.commit();
 		case KeyInput::Key::LEFT:
 			if (!k.ctrl) [[likely]]
 				ed.move_prev_grapheme();
 			else
 				ed.move_prev_word();
-			return;
+			break;
 		case KeyInput::Key::RIGHT:
 			if (!k.ctrl) [[likely]]
 				ed.move_next_grapheme();
 			else
 				ed.move_next_word();
-			return;
-		case KeyInput::Key::HOME: ed.move_begin(); return;
-		case KeyInput::Key::END: ed.move_end(); return;
+			break;
+		case KeyInput::Key::HOME: ed.move_begin(); break;
+		case KeyInput::Key::END: ed.move_end(); break;
 	}
+	return std::nullopt;
 }
 
-void Input::read () {
+Outputs Input::read () {
+	Outputs outs;
 	uint8_t buf[64];
 	ssize_t n = ::read (STDIN_FILENO, buf, sizeof (buf));
 	InputEvents evs = decode (std::span (buf, n));
-	for (const InputEvent& ev : evs)
-		dispatch (ev);
+	for (const InputEvent& ev : evs) {
+		OptString out = dispatch (ev);
+		if (out) outs.push_back (std::move (*out));
+	}
+	return outs;
 }
 
 }

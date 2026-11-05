@@ -4,6 +4,7 @@
 
 #include "Basedlib/Class.hpp"
 
+#include "Basedline/Defs.hpp"
 #include "Basedline/Input.hpp"
 #include "Basedline/InputDisplay.hpp"
 #include "Basedline/Screen.hpp"
@@ -16,7 +17,7 @@ class Basedline {
 	InputDisplay inputDisplay;
 
 public:
-	void read ();
+	Outputs read ();
 
 	void write (std::string_view str);
 	void flush ();

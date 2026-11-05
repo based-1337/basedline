@@ -1,13 +1,28 @@
 #include "Basedline/Basedline.hpp"
 
+#include <string>
+
 int main () {
 	Basedline::Basedline bl;
 
-	for (int i = 0; i < 10; i++) {
-		bl.read();
-		//bl.write ("a");
+	Basedline::Outputs allOuts;
+	bool stop = false;
+	while (!stop) {
+		Basedline::Outputs outs = bl.read();
 		bl.flush();
+		for (const std::string& out : outs) {
+			if (out == "quit" || out == "stop")
+				stop = true;
+			allOuts.push_back (out);
+		}
 	}
+
+	bl.write ("All commands:\n");
+	for (const std::string& out : allOuts) {
+		bl.write (out + "\n");
+	}
+
+	bl.flush();
 
 	return 0;
 }

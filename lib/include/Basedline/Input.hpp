@@ -6,6 +6,7 @@
 #include "BasedVT/Parser.hpp"
 #include "BasedVT/InputEvent/Event.hpp"
 
+#include "Basedline/Defs.hpp"
 #include "Basedline/Editor.hpp"
 
 namespace Basedline {
@@ -26,11 +27,11 @@ class Input {
 	BasedVT::Parser vtparser;
 
 	InputEvents decode (std::span<uint8_t> buf);
-	void dispatch (const InputEvent& ev);
-	void dispatch_edit (const BasedVT::InputEvent::KeyInput& k);
+	OptString dispatch (const InputEvent& ev);
+	OptString dispatch_edit (const BasedVT::InputEvent::KeyInput& k);
 
 public:
-	void read ();
+	Outputs read ();
 	const Editor& editor () const noexcept { return ed; }
 };
 

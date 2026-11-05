@@ -12,6 +12,12 @@ void Editor::clear () noexcept {
 	_pos = 0;
 }
 
+std::string Editor::commit () {
+	std::string str (chbuf());
+	clear();
+	return str;
+}
+
 void Editor::accumulate (char8_t byte) {
 	if (byte == 0) [[unlikely]] {
 		acc.clear();

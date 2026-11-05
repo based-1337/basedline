@@ -31,6 +31,7 @@ public:
 	bool acc_empty () const noexcept { return acc.empty(); }
 
 	void clear () noexcept;
+	std::string commit ();
 
 	void accumulate (char8_t byte);
 	void insert (std::u8string_view u8str);
