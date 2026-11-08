@@ -7,10 +7,8 @@
 
 namespace Basedline {
 
-void InputDisplay::update_cursor () {
-	tsize_t editorPosSave = editorPos;
+void InputDisplay::save_cursor () {
 	editorPos = in.editor().pos();
-
 	cursorPos.x = editorPos;
 }
 
@@ -20,24 +18,20 @@ void InputDisplay::restore_cursor () {
 }
 
 void InputDisplay::hide () {
+	save_cursor();
+
 	cursor.hide();
 	cursor.move_line_begin();
 	cursor.move_up (cursorPos.y);
 	VtCommand::clear_from_cursor();
-	visible = false;
 }
 
 void InputDisplay::show () {
-	update_cursor();
-	draw();
+	buf.push (in.editor().buf());
+	buf.flush();
+
 	restore_cursor();
 	cursor.show();
-	visible = true;
-}
-
-void InputDisplay::draw () {
-	scr.write (in.editor().buf());
-	scr.flush();
 }
 
 }

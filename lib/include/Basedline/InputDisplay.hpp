@@ -2,32 +2,29 @@
 
 #include "Basedline/Cursor.hpp"
 #include "Basedline/Defs.hpp"
+#include "Basedline/ScreenBuf.hpp"
 
 namespace Basedline {
 
 class Input;
-class Screen;
 
 class InputDisplay {
 	const Input& in;
-	Screen& scr;
+	ScreenBuf buf;
 	Cursor cursor;
 
 	tsize_t rows = 1;
 	tpos_t cursorPos = {0};
 	tsize_t editorPos = 0;
-	bool visible = false;
 
-	void update_cursor ();
+	void save_cursor ();
 	void restore_cursor ();
 
 public:
 	void hide ();
 	void show ();
 
-	void draw ();
-
-	InputDisplay (const Input& in, Screen& scr) : in (in), scr (scr) { }
+	InputDisplay (const Input& in) : in (in) { }
 };
 
 }
