@@ -13,6 +13,8 @@
 
 #include "Basedline/ScreenBuf.hpp"
 
+#include "Debug.hpp"
+
 namespace Basedline {
 
 static bool needs_flush (std::span<uint8_t> buf, uint8_t currByte) noexcept {
