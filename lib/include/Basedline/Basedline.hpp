@@ -1,6 +1,6 @@
 #pragma once
 
-#include <string_view>
+#include <string>
 
 #include "Basedlib/Class.hpp"
 
@@ -22,7 +22,7 @@ public:
 	bool read ();
 	Inputs loop ();
 
-	void write (std::string_view str);
+	void print (std::string str);
 	void flush ();
 
 	Basedline ();

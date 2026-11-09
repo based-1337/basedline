@@ -17,9 +17,9 @@ int main () {
 		}
 	}
 
-	bl.write ("All commands:\n");
+	bl.print ("All commands:\n");
 	for (const std::string& out : allOuts) {
-		bl.write (out + "\n");
+		bl.print (out + "\n");
 	}
 
 	bl.flush();

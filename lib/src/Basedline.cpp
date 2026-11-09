@@ -15,16 +15,17 @@ Inputs Basedline::loop () {
 	return {};
 }
 
-void Basedline::write (std::string_view str) {
-	con.write (str);
+void Basedline::print (std::string str) {
+	out.push (std::move (str));
 }
 
 void Basedline::flush () {
 	if (in.enabled)
 		inputDisplay.hide();
-	con.flush();
+	out.write();
 	if (in.enabled)
 		inputDisplay.show();
+	con.flush();
 }
 
 Basedline::Basedline () : in (con), inputDisplay (con, in), out (con) { }
