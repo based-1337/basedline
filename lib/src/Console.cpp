@@ -12,10 +12,6 @@
 
 namespace Basedline {
 
-void Console::clear () {
-	VtCommand::clear();
-}
-
 void Console::write (std::string_view str) {
 	screenBuf.push (str);
 }

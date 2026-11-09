@@ -1,20 +1,22 @@
 #pragma once
 
+#include <string>
+
 #include "Basedline/Defs.hpp"
 
 namespace Basedline::VtCommand {
 
-void clear ();
-void clear_from_cursor ();
-void clear_lines (tsize_t from, tsize_t count);
+std::string clear ();
+std::string clear_from_cursor ();
+std::string clear_lines (tsize_t from, tsize_t count);
 
-void cr ();
+std::string cr ();
 
-void cursor_up (tsize_t dy);
-void cursor_down (tsize_t dy);
-void cursor_to (tpos_t pos);
-void cursor_to_col (tsize_t col);
-void cursor_hide ();
-void cursor_show ();
+std::string cursor_up (tsize_t dy);
+std::string cursor_down (tsize_t dy);
+std::string cursor_to (tpos_t pos);
+std::string cursor_to_col (tsize_t col);
+std::string cursor_hide ();
+std::string cursor_show ();
 
 }

@@ -14,7 +14,6 @@ class Console {
 	ScreenBuf screenBuf;
 
 public:
-	void clear ();
 	void write (std::string_view str);
 	void flush ();
 

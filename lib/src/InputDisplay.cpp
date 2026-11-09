@@ -1,5 +1,7 @@
 #include "Basedline/InputDisplay.hpp"
 
+#include <print>
+
 #include "Basedline/Input.hpp"
 #include "Basedline/Console.hpp"
 
@@ -14,17 +16,17 @@ void InputDisplay::save_cursor () {
 }
 
 void InputDisplay::restore_cursor () {
-	cursor.move_up (rows - cursorPos.y - 1);
-	cursor.move_to_col (cursorPos.x);
+	std::print ("{}", VtCommand::cursor_up (rows - cursorPos.y - 1));
+	std::print ("{}", VtCommand::cursor_to_col (cursorPos.x));
 }
 
 void InputDisplay::hide () {
 	save_cursor();
 
-	cursor.hide();
-	cursor.move_line_begin();
-	cursor.move_up (cursorPos.y);
-	VtCommand::clear_from_cursor();
+	std::print ("{}", VtCommand::cursor_hide());
+	std::print ("{}", VtCommand::cr());
+	std::print ("{}", VtCommand::cursor_up (cursorPos.y));
+	std::print ("{}", VtCommand::clear_from_cursor());
 }
 
 void InputDisplay::show () {
@@ -32,7 +34,7 @@ void InputDisplay::show () {
 	buf.flush();
 
 	restore_cursor();
-	cursor.show();
+	std::print ("{}", VtCommand::cursor_show());
 }
 
 InputDisplay::InputDisplay (Console& con, const Input& in) : con (con), in (in) { }

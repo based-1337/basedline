@@ -3,7 +3,6 @@
 #include "Basedlib/Class.hpp"
 
 #include "Basedline/Console.hpp"
-#include "Basedline/Cursor.hpp"
 #include "Basedline/Defs.hpp"
 #include "Basedline/ScreenBuf.hpp"
 
@@ -15,7 +14,6 @@ class InputDisplay {
 	Console& con;
 	const Input& in;
 	ScreenBuf buf;
-	Cursor cursor;
 
 	tsize_t rows = 1;
 	tpos_t cursorPos = {0};
