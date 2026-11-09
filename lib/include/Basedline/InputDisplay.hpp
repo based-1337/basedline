@@ -4,16 +4,13 @@
 
 #include "Basedline/Console.hpp"
 #include "Basedline/Defs.hpp"
-#include "Basedline/ScreenBuf.hpp"
+#include "Basedline/Input.hpp"
 
 namespace Basedline {
-
-class Input;
 
 class InputDisplay {
 	Console& con;
 	const Input& in;
-	ScreenBuf buf;
 
 	tsize_t rows = 1;
 	tpos_t cursorPos = {0};
