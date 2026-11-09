@@ -15,6 +15,7 @@ public:
 	void clear ();
 	void write (std::string_view str);
 	void flush ();
+	bool has_input ();
 };
 
 }

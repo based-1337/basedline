@@ -2,12 +2,17 @@
 
 namespace Basedline {
 
-void Basedline::read () {
+bool Basedline::read () {
+	if (in.enabled) return false;
 	in.enabled = true;
+	return true;
 }
 
 Outputs Basedline::loop () {
-	return in.read();
+	flush();
+	if (in.enabled)
+		return in.read();
+	return {};
 }
 
 void Basedline::write (std::string_view str) {
@@ -15,9 +20,11 @@ void Basedline::write (std::string_view str) {
 }
 
 void Basedline::flush () {
-	inputDisplay.hide();
+	if (in.enabled)
+		inputDisplay.hide();
 	scr.flush();
-	inputDisplay.show();
+	if (in.enabled)
+		inputDisplay.show();
 }
 
 Basedline::Basedline () : inputDisplay (in) { }

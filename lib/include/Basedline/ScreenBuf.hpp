@@ -10,13 +10,14 @@ class ScreenBuf {
 	const size_t defaultSize = 1024;
 	const size_t maxSize = 16 * defaultSize;
 	std::string buf;
+
 public:
 	void push (std::string_view val) {
 		buf.append (val);
 	}
 
 	void flush () {
-		if (buf.empty()) [[unlikely]] return;
+		if (buf.empty()) [[likely]] return;
 
 		std::fwrite (buf.data(), 1, buf.size(), stdout);
 		std::fflush (stdout);
