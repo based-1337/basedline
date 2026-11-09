@@ -4,17 +4,19 @@
 
 #include "Basedlib/Class.hpp"
 
+#include "Basedline/Console.hpp"
 #include "Basedline/Defs.hpp"
 #include "Basedline/Input.hpp"
 #include "Basedline/InputDisplay.hpp"
-#include "Basedline/Console.hpp"
+#include "Basedline/Output.hpp"
 
 namespace Basedline {
 
 class Basedline {
-	Input in;
 	Console con;
+	Input in;
 	InputDisplay inputDisplay;
+	Output out;
 
 public:
 	bool read ();

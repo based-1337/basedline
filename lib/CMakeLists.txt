@@ -22,6 +22,7 @@ set(BASEDLINE_SOURCES
 	Editor.cpp
 	Input.cpp
 	InputDisplay.cpp
+	Output.cpp
 	TTYConf.cpp
 	VtCommand.cpp
 	Width.cpp

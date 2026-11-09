@@ -3,15 +3,19 @@
 #include <span>
 #include <vector>
 
+#include "Basedlib/Class.hpp"
 #include "BasedVT/Parser.hpp"
 #include "BasedVT/InputEvent/Event.hpp"
 
+#include "Basedline/Console.hpp"
 #include "Basedline/Defs.hpp"
 #include "Basedline/Editor.hpp"
 
 namespace Basedline {
 
 class Input {
+	Console& con;
+
 	enum class InputEventType {
 		Edit,
 		Autocomplete,
@@ -35,6 +39,10 @@ public:
 
 	Outputs read ();
 	const Editor& editor () const noexcept { return ed; }
+
+	Input (Console& con);
+
+	BASED_CLASS_NO_COPY_MOVE (Input);
 };
 
 }

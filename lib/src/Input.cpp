@@ -87,4 +87,6 @@ Outputs Input::read () {
 	return outs;
 }
 
+Input::Input (Console& con) : con (con) { }
+
 }

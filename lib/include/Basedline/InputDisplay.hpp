@@ -1,5 +1,8 @@
 #pragma once
 
+#include "Basedlib/Class.hpp"
+
+#include "Basedline/Console.hpp"
 #include "Basedline/Cursor.hpp"
 #include "Basedline/Defs.hpp"
 #include "Basedline/ScreenBuf.hpp"
@@ -9,6 +12,7 @@ namespace Basedline {
 class Input;
 
 class InputDisplay {
+	Console& con;
 	const Input& in;
 	ScreenBuf buf;
 	Cursor cursor;
@@ -24,7 +28,9 @@ public:
 	void hide ();
 	void show ();
 
-	InputDisplay (const Input& in) : in (in) { }
+	InputDisplay (Console& con, const Input& in);
+
+	BASED_CLASS_NO_COPY_MOVE (InputDisplay);
 };
 
 }

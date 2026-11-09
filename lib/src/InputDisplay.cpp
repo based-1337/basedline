@@ -35,4 +35,6 @@ void InputDisplay::show () {
 	cursor.show();
 }
 
+InputDisplay::InputDisplay (Console& con, const Input& in) : con (con), in (in) { }
+
 }

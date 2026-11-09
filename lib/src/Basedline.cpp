@@ -27,6 +27,6 @@ void Basedline::flush () {
 		inputDisplay.show();
 }
 
-Basedline::Basedline () : inputDisplay (in) { }
+Basedline::Basedline () : in (con), inputDisplay (con, in), out (con) { }
 
 }
