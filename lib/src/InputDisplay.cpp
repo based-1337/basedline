@@ -1,7 +1,7 @@
 #include "Basedline/InputDisplay.hpp"
 
 #include "Basedline/Input.hpp"
-#include "Basedline/Screen.hpp"
+#include "Basedline/Console.hpp"
 
 #include "VtCommand.hpp"
 

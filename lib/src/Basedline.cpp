@@ -16,13 +16,13 @@ Outputs Basedline::loop () {
 }
 
 void Basedline::write (std::string_view str) {
-	scr.write (str);
+	con.write (str);
 }
 
 void Basedline::flush () {
 	if (in.enabled)
 		inputDisplay.hide();
-	scr.flush();
+	con.flush();
 	if (in.enabled)
 		inputDisplay.show();
 }

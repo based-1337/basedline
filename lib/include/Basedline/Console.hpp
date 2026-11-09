@@ -7,7 +7,7 @@
 
 namespace Basedline {
 
-class Screen {
+class Console {
 	TTYConf ttyConf;
 	ScreenBuf screenBuf;
 

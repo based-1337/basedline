@@ -17,11 +17,11 @@ target_compile_definitions(basedline PRIVATE
 
 set(BASEDLINE_SOURCES
 	Basedline.cpp
+	Console.cpp
 	Cursor.cpp
 	Editor.cpp
 	Input.cpp
 	InputDisplay.cpp
-	Screen.cpp
 	TTYConf.cpp
 	VtCommand.cpp
 	Width.cpp

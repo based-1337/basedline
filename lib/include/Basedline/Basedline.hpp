@@ -7,13 +7,13 @@
 #include "Basedline/Defs.hpp"
 #include "Basedline/Input.hpp"
 #include "Basedline/InputDisplay.hpp"
-#include "Basedline/Screen.hpp"
+#include "Basedline/Console.hpp"
 
 namespace Basedline {
 
 class Basedline {
 	Input in;
-	Screen scr;
+	Console con;
 	InputDisplay inputDisplay;
 
 public:
