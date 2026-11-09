@@ -82,6 +82,8 @@ Outputs Input::read () {
 		OptString out = dispatch (ev);
 		if (out) outs.push_back (std::move (*out));
 	}
+	if (!outs.empty())
+		enabled = false;
 	return outs;
 }
 

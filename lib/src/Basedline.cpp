@@ -2,7 +2,11 @@
 
 namespace Basedline {
 
-Outputs Basedline::read () {
+void Basedline::read () {
+	in.enabled = true;
+}
+
+Outputs Basedline::loop () {
 	return in.read();
 }
 

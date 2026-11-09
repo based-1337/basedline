@@ -17,7 +17,8 @@ class Basedline {
 	InputDisplay inputDisplay;
 
 public:
-	Outputs read ();
+	void read ();
+	Outputs loop ();
 
 	void write (std::string_view str);
 	void flush ();

@@ -31,6 +31,8 @@ class Input {
 	OptString dispatch_edit (const BasedVT::InputEvent::KeyInput& k);
 
 public:
+	bool enabled = false;
+
 	Outputs read ();
 	const Editor& editor () const noexcept { return ed; }
 };

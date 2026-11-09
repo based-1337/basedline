@@ -10,6 +10,7 @@ namespace Basedline {
 void InputDisplay::save_cursor () {
 	editorPos = in.editor().pos();
 	cursorPos.x = editorPos;
+	cursorPos.y = 1;
 }
 
 void InputDisplay::restore_cursor () {
