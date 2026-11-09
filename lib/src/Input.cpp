@@ -3,12 +3,6 @@
 #include <print>
 #include <variant>
 
-#ifdef __WIN32
-#include <io.h>
-#else
-#include <unistd.h>
-#endif
-
 #include "Basedlib/Meta/Overloaded.hpp"
 
 #include "Basedline/ScreenBuf.hpp"
@@ -73,11 +67,10 @@ OptString Input::dispatch_edit (const BasedVT::InputEvent::KeyInput& k) {
 	return std::nullopt;
 }
 
-Outputs Input::read () {
-	Outputs outs;
+Inputs Input::read () {
+	Inputs outs;
 	uint8_t buf[64];
-	ssize_t n = ::read (STDIN_FILENO, buf, sizeof (buf));
-	InputEvents evs = decode (std::span (buf, n));
+	InputEvents evs = decode (con.read (buf));
 	for (const InputEvent& ev : evs) {
 		OptString out = dispatch (ev);
 		if (out) outs.push_back (std::move (*out));

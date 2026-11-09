@@ -8,7 +8,7 @@ bool Basedline::read () {
 	return true;
 }
 
-Outputs Basedline::loop () {
+Inputs Basedline::loop () {
 	flush();
 	if (in.enabled)
 		return in.read();

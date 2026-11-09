@@ -1,8 +1,10 @@
 #include "Basedline/Console.hpp"
 
 #ifdef __WIN32
+#include <io.h>
 #include "Basedline/Winwrap.hpp"
 #else
+#include <unistd.h>
 // select
 #endif
 
@@ -31,6 +33,12 @@ bool Console::has_input () {
 #else
 	// select
 #endif
+}
+
+ std::span<uint8_t> Console::read (std::span<uint8_t> dst) {
+	size_t read = ::read (STDIN_FILENO, dst.data(), dst.size());
+	if (read <= 0) return {};
+	return dst.first (read);
 }
 
 }

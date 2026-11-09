@@ -1,5 +1,6 @@
 #pragma once
 
+#include <cstdint>
 #include <span>
 #include <vector>
 
@@ -37,7 +38,7 @@ class Input {
 public:
 	bool enabled = false;
 
-	Outputs read ();
+	Inputs read ();
 	const Editor& editor () const noexcept { return ed; }
 
 	Input (Console& con);

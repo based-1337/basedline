@@ -5,11 +5,11 @@
 int main () {
 	Basedline::Basedline bl;
 
-	Basedline::Outputs allOuts;
+	Basedline::Inputs allOuts;
 	bool stop = false;
 	while (!stop) {
 		bl.read();
-		Basedline::Outputs outs = bl.loop();
+		Basedline::Inputs outs = bl.loop();
 		for (const std::string& out : outs) {
 			if (out == "quit" || out == "stop")
 				stop = true;

@@ -14,6 +14,6 @@ struct tpos_t {
 };
 
 using OptString = std::optional <std::string>;
-using Outputs = std::vector <std::string>;
+using Inputs = std::vector <std::string>;
 
 }

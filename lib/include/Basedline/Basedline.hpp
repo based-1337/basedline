@@ -20,7 +20,7 @@ class Basedline {
 
 public:
 	bool read ();
-	Outputs loop ();
+	Inputs loop ();
 
 	void write (std::string_view str);
 	void flush ();
